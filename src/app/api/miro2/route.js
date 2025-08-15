@@ -2,7 +2,7 @@
 export async function POST(request) {
   try {
     const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
-    const CHAT_ID = "815565811";
+    const CHAT_ID = "-1002736534446";
 
     // Ambil data JSON langsung
     const body = await request.json();
