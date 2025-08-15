@@ -1,15 +1,24 @@
 // src/app/api/miro2/route.js
-
 export async function POST(request) {
   try {
     const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
-    const CHAT_ID = "815565811"; // Ambil dari @userinfobot di Telegram
+    const CHAT_ID = "815565811";
 
-    // Ambil JSON dari TradingView
-    const body = await request.json();
+    let bodyText;
+    let body;
+
+    try {
+      // Coba parse sebagai JSON
+      body = await request.json();
+      bodyText = JSON.stringify(body, null, 2);
+    } catch (err) {
+      // Kalau gagal, berarti plain text
+      bodyText = await request.text();
+      body = { message: bodyText };
+    }
 
     // Format pesan
-      const message = `🚀 Buy Signal 🚀\n\n${JSON.stringify(body, null, 2)}`;
+    const message = `🚀 Buy Signal 🚀\n\n${bodyText}`;
 
     // Kirim ke Telegram
     const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
@@ -32,10 +41,14 @@ export async function POST(request) {
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
 
-  } catch  {
-     body = { message: await request.text() };
+  } catch (error) {
+    return new Response(
+      JSON.stringify({
+        success: false,
+        message: "Failed to send alert",
+        error: error.message,
+      }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
   }
 }
-
-//  // Format pesan
-//     const message = `🚀 Buy Signal 🚀\n\n${JSON.stringify(body, null, 2)}`;
