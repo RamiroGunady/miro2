@@ -32,15 +32,8 @@ export async function POST(request) {
       { status: 200, headers: { "Content-Type": "application/json" } }
     );
 
-  } catch (error) {
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: "Failed to send alert",
-        error: error.message,
-      }),
-      { status: 500, headers: { "Content-Type": "application/json" } }
-    );
+  } catch  {
+     body = { message: await request.text() };
   }
 }
 
