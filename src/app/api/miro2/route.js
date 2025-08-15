@@ -4,11 +4,11 @@ export async function POST(request) {
     const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
     const CHAT_ID = "815565811";
 
-    
-        const body =    await request.json()
-        const parsebody = JSON.parse(body)
-      // Format pesan
-    const message = `🚀 Buy Signal - ${parsebody.interval}🚀\n\n${parsebody.text} '=' ${parsebody.price} `;
+    // Ambil data JSON langsung
+    const body = await request.json();
+
+    // Format pesan
+    const message = `🚀 Buy Signal - ${body.interval} 🚀\n\n${body.text} = ${body.price}`;
 
     // Kirim ke Telegram
     const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
@@ -42,4 +42,3 @@ export async function POST(request) {
     );
   } 
 }
-
