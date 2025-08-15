@@ -4,8 +4,8 @@ export async function POST(request) {
     const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
     const CHAT_ID = "815565811";
 
-    console.log(request.json())
-    console.log(request.text())
+    console.log(await request.json())
+    console.log(await request.text())
 
     let bodyText;
     let body;
