@@ -8,7 +8,7 @@ export async function POST(request) {
     const body = await request.json();
 
     // Format pesan
-    const message = `🚀 Buy Signal - ${body.interval} 🚀\n\n${body.text} = ${body.price}`;
+    const message = `🚀 ${body.condition} Signal - ${body.interval} 🚀\n\n${body.text} = ${body.price}`;
 
     // Kirim ke Telegram
     const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
