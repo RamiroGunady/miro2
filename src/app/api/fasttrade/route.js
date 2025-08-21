@@ -1,6 +1,6 @@
 export async function GET() {
   const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
-  const CHAT_ID = "2853340268"; // ganti dengan group_id kamu
+  const CHAT_ID = "c/2853340268"; // ganti dengan group_id kamu
   const THREAD_ID = 1; // ganti dengan topic id kamu
   const MESSAGE = "Hello dari bot ke topic! 🚀";
 
@@ -36,4 +36,5 @@ export async function GET() {
     );
   }
 }
+
 
