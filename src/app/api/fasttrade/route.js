@@ -7,7 +7,7 @@ export async function POST(request) {
     const CHAT_ID = "2853340268"; 
 
     // ID topik (contoh: 5 dari link t.me/c/2853340268/5)
-    const TOPIC_ID = 8;  
+    const TOPIC_ID = 1;  
 
     let bodyText;
     let body;
@@ -58,6 +58,7 @@ export async function POST(request) {
     );
   }
 }
+
 
 
 
