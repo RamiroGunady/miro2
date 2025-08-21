@@ -1,4 +1,4 @@
-export async function GET() {
+export async function POST() {
   const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
   const CHAT_ID = "6269053173"; // ganti dengan group_id kamu
   const THREAD_ID = 1; // ganti dengan topic id kamu
@@ -36,6 +36,7 @@ export async function GET() {
     );
   }
 }
+
 
 
 
