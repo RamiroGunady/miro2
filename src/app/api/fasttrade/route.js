@@ -3,7 +3,7 @@ export async function POST() {
   const CHAT_ID = "-1002853340268"; // ganti dengan group_id kamu
   const THREAD_ID = 8; // ganti dengan topic id kamu
   const body = await request.json();
-  const MESSAGE = `🚀 ${body.condition} Signal - ${body.interval} 🚀\n\n${body.text} = ${body.price}`;
+  const MESSAGE = `HALOOO`;
 
 
   try {
@@ -38,6 +38,7 @@ export async function POST() {
     );
   }
 }
+
 
 
 
