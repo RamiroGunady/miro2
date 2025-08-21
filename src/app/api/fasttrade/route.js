@@ -1,31 +1,38 @@
-// test-topic.js
-const fetch = require("node-fetch");
+export async function GET() {
+  const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
+  const CHAT_ID = "-1002853340268"; // ganti dengan group_id kamu
+  const THREAD_ID = 5; // ganti dengan topic id kamu
+  const MESSAGE = "Hello dari bot ke topic! 🚀";
 
-const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
+  try {
+    const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
 
-// ID grup utama (bukan username/link, tapi chat_id numerik grup)
-const CHAT_ID = "-1002853340268";  
+    const res = await fetch(telegramUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        message_thread_id: THREAD_ID,
+        text: MESSAGE,
+      }),
+    });
 
-// ID topik (message_thread_id) yang ada di dalam grup
-const TOPIC_ID = 5; // contoh dari link /2853340268/5
+    const data = await res.json();
 
-async function sendHello() {
-  const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
-
-  const res = await fetch(telegramUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: CHAT_ID,
-      message_thread_id: TOPIC_ID,
-      text: "Hello from my bot 👋 (test kirim ke topik)",
-    }),
-  });
-
-  const data = await res.json();
-  console.log(data);
+    return new Response(
+      JSON.stringify({
+        success: true,
+        result: data,
+      }),
+      { status: 200, headers: { "Content-Type": "application/json" } }
+    );
+  } catch (error) {
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: error.message,
+      }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
+  }
 }
-
-sendHello();
-
-
