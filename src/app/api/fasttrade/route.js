@@ -32,7 +32,7 @@ export async function POST(request) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         chat_id: CHAT_ID,
-        message_thread_id: TOPIC_ID,  // <<< tambahan penting
+        // <<< tambahan penting
         text: message,
         parse_mode: "Markdown"
       }),
@@ -58,4 +58,5 @@ export async function POST(request) {
     );
   }
 }
+
 
