@@ -4,7 +4,7 @@ export async function POST(request) {
     const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
 
     // chat_id group (pakai -100...)
-    const CHAT_ID = "6269053173"; 
+    const CHAT_ID = "2853340268"; 
 
     // ID topik (contoh: 5 dari link t.me/c/2853340268/5)
     const TOPIC_ID = 8;  
@@ -58,6 +58,7 @@ export async function POST(request) {
     );
   }
 }
+
 
 
 
