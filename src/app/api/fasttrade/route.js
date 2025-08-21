@@ -2,7 +2,8 @@ export async function POST() {
   const TELEGRAM_TOKEN = "7150593123:AAGP4xm3-XTKksZmxKWPiVRZR0xNsZBEVus";
   const CHAT_ID = "-1002853340268"; // ganti dengan group_id kamu
   const THREAD_ID = 8; // ganti dengan topic id kamu
-  
+  // Ambil data JSON langsung
+  const body = await request.json();
   const MESSAGE = `🚀 ${body.condition} Signal - ${body.interval} 🚀\n\n${body.text} = ${body.price}`;
 
 
@@ -38,6 +39,7 @@ export async function POST() {
     );
   }
 }
+
 
 
 
