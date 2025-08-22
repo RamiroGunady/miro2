@@ -4,6 +4,7 @@ export async function POST() {
   const THREAD_ID = 8; // ganti dengan topic id kamu
   // Ambil data JSON langsung
   const body = await request.json();
+  const parsebody = JSON.parse(body)
   const MESSAGE = `🚀 ${body.condition} Signal - ${body.interval} 🚀\n\n${body.text} = ${body.price}`;
 
 
@@ -17,6 +18,7 @@ export async function POST() {
         chat_id: CHAT_ID,
         message_thread_id: THREAD_ID,
         text: MESSAGE,
+        parse_mode: "Markdown"
       }),
     });
 
@@ -39,6 +41,7 @@ export async function POST() {
     );
   }
 }
+
 
 
 
