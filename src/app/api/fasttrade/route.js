@@ -32,7 +32,7 @@ export async function POST(request) {
 
     // Deteksi aset
     const isStock = /^[A-Z]{4}$/.test(symbol);
-    const isCrypto = /USDT$/.test(symbol);
+    const isCrypto = /USDT.P$/.test(symbol);
     const isForex = /^([A-Z]{3})([A-Z]{3})$/.test(symbol);
 
     let proTarget = null;
@@ -102,3 +102,4 @@ export async function POST(request) {
     );
   }
 }
+
