@@ -7,7 +7,7 @@ export async function POST(request) {
   // Ambil data JSON langsung
     const body = await request.json();
     const parsebody = JSON.parse(body)
-    const MESSAGE = `🚀 ${body.condition} Signal - ${body.interval} 🚀\n\n${body.text} = ${body.price}`;
+    const MESSAGE = `🚀 BUY`;
 
     // Kirim ke Telegram
     const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
@@ -42,4 +42,5 @@ export async function POST(request) {
     );
   } 
 }
+
 
