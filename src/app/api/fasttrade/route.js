@@ -50,7 +50,7 @@ export async function POST(request) {
     if (proTarget) targets.push(proTarget);
 
     // NEWBIE hanya untuk saham
-    if (isStock) targets.push(CHANNELS.NEWBIE.BULL);
+    if (isStock && condition.includes("BUY")) targets.push(CHANNELS.NEWBIE.BULL);
 
     if (targets.length === 0) {
       return new Response(
@@ -102,5 +102,6 @@ export async function POST(request) {
     );
   }
 }
+
 
 
